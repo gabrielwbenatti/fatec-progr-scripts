@@ -1,0 +1,45 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/menu.ejs') %>
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Editar Serviço 
+        </div>
+        <div class="card-body">
+            <form method="post" action="/services/alterar">
+                <input type="hidden" name="id" value="<%= service.id %>">
+                <div class="form-floating mb-3">
+                    <input 
+                        type="text" 
+                        name="nome"
+                        id="nome"
+                        class="form-control"
+                        placeholder="Descrição"
+                        required
+                        value="<%= service.descricao %>"
+                    >
+                    <label for="nome">Nome</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input 
+                        type="text" 
+                        name="sobrenome"
+                        id="sobrenome"
+                        class="form-control"
+                        placeholder="Valor"
+                        required
+                        value="<%= service.valor %>"
+                    >
+                    <label for="nome">Sobrenome</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <button type="submit" class="btn btn-primary">Alterar</button>
+                    <a href="/services" class="btn btn-warning">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

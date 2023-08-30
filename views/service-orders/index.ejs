@@ -1,0 +1,40 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/menu.ejs') %>
+<br>
+<div class="container">
+    <a href="/service-orders/novo" class="btn btn-primary">Nova Ordem de Serviço</a>
+    <br>
+    <div class="card">
+        <div class="card-header">
+            Ordem de Serviços
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <th>Data de realização</th>
+                    <th>Valor</th>
+                </thead>
+                <tbody>
+                    <% serviceOrders.forEach(serviceOrder => { %>
+                        <tr>
+                            <td><%= serviceOrder.dataRealizacao %></td>
+                            <td><%= serviceOrder.total %></td>
+                            <td>
+                                <a 
+                                   
+                                    class="btn btn-primary"
+                                >Editar</a>
+                                <a 
+                                    
+                                    class="btn btn-danger"
+                                >Excluir</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

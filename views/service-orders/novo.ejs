@@ -1,0 +1,49 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/menu.ejs') %>
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Nova Ordem de Serviço
+        </div>
+        <div class="card-body"> 
+            <form method="post" action="/service-orders/salvar">
+                <div class="form-floating mb-3">
+                    <input 
+                        type="date" 
+                        name="dataRealizacao"
+                        id="dataRealizacao"
+                        class="form-control"
+                        placeholder="Data da Ordem"
+                        required
+                    >
+                    <label for="dataRealizacao">Data da Ordem</label>
+                </div>
+               
+                <div class="form-floating mb-3">
+                    <select class="form-control" name="petId" id="petId">
+                        <% pets.forEach(pet => { %>
+                            <option value="<%= pet.id %>"><%= pet.nome %></option>
+                        <%})%>
+                    </select>
+                    <label for="petId">Selecione o nome do pet</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-control" name="serviceId" id="serviceId">
+                        <% services.forEach(service => { %>
+                            <option value="<%= service.id %>"><%= service.descricao %></option>
+                        <%})%>
+                    </select>
+                    <label for="serviceId">Selecione um serviço</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a href="/service-orders" class="btn btn-warning">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

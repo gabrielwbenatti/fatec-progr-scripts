@@ -1,0 +1,64 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/menu.ejs') %>
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Novo Cliente
+        </div>
+        <div class="card-body"> 
+            <form method="post" action="/customers/salvar">
+                <div class="form-floating mb-3">
+                    <input 
+                        type="text" 
+                        name="nome"
+                        id="nome"
+                        class="form-control"
+                        placeholder="Nome"
+                        required
+                    >
+                    <label for="nome">Nome</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input 
+                        type="text" 
+                        name="sobrenome"
+                        id="sobrenome"
+                        class="form-control"
+                        placeholder="Sobrenome do Cliente"
+                        required
+                    >
+                    <label for="nome">Sobrenome</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input 
+                        type="text" 
+                        name="cpf"
+                        id="cpf"
+                        class="form-control"
+                        placeholder="CPF"
+                        required
+                    >
+                    <label for="nome">CPF</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input 
+                        type="tel" 
+                        name="telefone"
+                        id="telefone"
+                        class="form-control"
+                        placeholder="Telefone"
+                        required
+                    >
+                    <label for="nome">Telefone</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a href="/customers" class="btn btn-warning">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

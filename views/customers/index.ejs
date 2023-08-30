@@ -1,0 +1,43 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/menu.ejs') %>
+<br>
+<div class="container">
+    <a href="/customers/novo" class="btn btn-primary">Novo Cliente</a>
+    <br>
+    <div class="card">
+        <div class="card-header">
+            Clientes Cadastrados
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <th>Nome do Cliente</th>
+                    <th>Sobrenome</th>
+                    <th>Celular</th>
+                    <th>Ações</th>
+                </thead>
+                <tbody>
+                    <% customers.forEach(customer => { %>
+                        <tr>
+                            <td><%= customer.nome %></td>
+                            <td><%= customer.sobrenome %></td>
+                            <td><%= customer.telefone %></td>
+                            <td>
+                                <a 
+                                    href="/customers/editar/<%= customer.id %>" 
+                                    class="btn btn-primary"
+                                >Editar</a>
+                                <a 
+                                    href="/customers/excluir/<%= customer.id %>" 
+                                    class="btn btn-danger"
+                                >Excluir</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

@@ -1,0 +1,72 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/menu.ejs') %>
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Novo Pet
+        </div>
+        <div class="card-body"> 
+            <form method="post" action="/pets/salvar">
+                <div class="form-floating mb-3">
+                    <input 
+                        type="text" 
+                        name="nome"
+                        id="nome"
+                        class="form-control"
+                        placeholder="Nome"
+                        required
+                    >
+                    <label for="nome">Nome</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input 
+                        type="number" 
+                        name="idade"
+                        id="idade"
+                        class="form-control"
+                        placeholder="Idade"
+                        required
+                    >
+                    <label for="idade">Idade</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input 
+                        type="text" 
+                        name="raca"
+                        id="raca"
+                        class="form-control"
+                        placeholder="Raça"
+                        required
+                    >
+                    <label for="raca">Raça</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input 
+                        type="text" 
+                        name="especie"
+                        id="especie"
+                        class="form-control"
+                        placeholder="Espécie"
+                        required
+                    >
+                    <label for="especie">Espécie</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-control" name="customerId" id="customerId">
+                        <% customers.forEach(customer => { %>
+                            <option value="<%= customer.id %>"><%= customer.nome %></option>
+                        <%})%>
+                    </select>
+                    <label for="customerId">Selecione o cliente</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a href="/pets" class="btn btn-warning">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
